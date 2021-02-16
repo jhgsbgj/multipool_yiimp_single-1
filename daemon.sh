@@ -48,7 +48,7 @@ echo -e "$GREEN Berkeley 4.8 Completed...$COL_RESET"
 
 echo -e " Building Berkeley 5.1, this may take several minutes...$COL_RESET"
 sudo mkdir -p $STORAGE_ROOT/berkeley/db5/
-hide_output sudo wget 'http://download.oracle.com/berkeley-db/db-5.1.29.tar.gz'
+hide_output sudo wget 'http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.1.29.tar.gz'
 hide_output sudo tar -xzvf db-5.1.29.tar.gz
 cd db-5.1.29/build_unix/
 hide_output sudo ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$STORAGE_ROOT/berkeley/db5/
