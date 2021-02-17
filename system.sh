@@ -177,14 +177,16 @@ sudo editconf.py /etc/update-manager/release-upgrades Prompt=never
 sudo rm -f /var/lib/ubuntu-release-upgrader/release-upgrade-available
 fi
 
-
 echo -e "$GREEN Done...$COL_RESET"
-echo -e " Downloading Original-Tasty YiiMP Repo...$COL_RESET"
+
+echo -e " Downloading CryptoPool.builders YiiMP Repo...$COL_RESET"
 hide_output sudo git clone ${YiiMPRepo} $STORAGE_ROOT/yiimp/yiimp_setup/yiimp
 if [[ ("$CoinPort" == "Yes") ]]; then
 	cd $STORAGE_ROOT/yiimp/yiimp_setup/yiimp
 	sudo git fetch
-	sudo git checkout multi-port
+	sudo git checkout multi-port >/dev/null 2>&1
 fi
 echo -e "$GREEN System files installed...$COL_RESET"
+
+set +eu +o pipefail
 cd $HOME/multipool/yiimp_single
